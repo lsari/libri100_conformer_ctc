@@ -1,0 +1,30 @@
+
+=== Requirements ===
+pytorch
+librosa
+pandas
+
+Install from source: https://github.com/githubharald/CTCDecoder
+Note: I had to change the CTC decoder to this ones as the ctcdecode installation failed with newer version of the remaining libraries
+
+
+=== Running the setup ===
+Assuming that you have already downloaded the Librispeech dataset,
+
+1) python prep_data.py <your-dataset-dir-ending with /Librispeech>
+   This extracts features and creates pandas dataframes
+2) Create a hyper-parameter json file using:
+   python template_for_args.py
+3) Run training
+   mkdir checkpoints_1
+   python -u train_seed_arg.py train_1.json checkpoints_1
+   Note: current setting is tested on single GPU
+4) Run testing
+   python test_wer.py train_1.json checkpoints_1/checkpoint_99.pt
+
+
+=== Results ===
+    	    CER	WER
+dev-clean   9.64	28.8
+test-clean  9.63	28.9
+
