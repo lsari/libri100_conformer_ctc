@@ -28,3 +28,6 @@ Assuming that you have already downloaded the Librispeech dataset,
 dev-clean   9.64	28.8
 test-clean  9.63	28.9
 
+=== Acknowledgment ===
+Thanks Xiaohui Zhang for fine-tuning the hyper-params
+
